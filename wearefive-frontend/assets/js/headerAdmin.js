@@ -1,6 +1,6 @@
 const ul = document.getElementById("ulnav")
 
-const lizapato=document.createElement("li")
+/** const lizapato=document.createElement("li")
 const azapato=document.createElement("a")
 azapato.innerHTML="REGISTRAR ZAPATO"
 azapato.href="registrar-zapato.html"
@@ -56,4 +56,18 @@ const alogin=document.createElement("a")
 alogin.innerHTML="INICIAR SESION"
 alogin.href="login_registrer.html"
 lilogin.appendChild(alogin)
-ul.appendChild(lilogin)
+ul.appendChild(lilogin) */
+
+const libuscar=document.createElement("li")
+const formularioB=document.createElement("form")
+formularioB.action="buscarAdmin.html"
+const buscarZapato=document.createElement("input")
+buscarZapato.type="input"
+buscarZapato.name="nombreUrl"
+const buttonBuscar=document.createElement("button")
+buttonBuscar.innerHTML="BUSCAR"
+
+formularioB.appendChild(buscarZapato)
+formularioB.appendChild(buttonBuscar)
+libuscar.appendChild(formularioB)
+ul.appendChild(libuscar)
