@@ -101,6 +101,20 @@ fetch("http://"+host()+"/api/products/list")
     const buttonproceso=document.createElement('button')
     buttonproceso.innerHTML="Gestionar proceso"
 
+
+    const contentS=document.createElement('form')
+
+    contentS.className="post";
+    contentS.action="Stock.html"
+    contentS.method="get"
+    const inputS=document.createElement('input')
+    inputS.type="hidden"
+    inputS.name="idModelo"
+    inputS.value=product.id
+    const buttonS=document.createElement('button')
+    buttonS.innerHTML="Gestionar stock"
+
+
     //se encierran los objetos unos dentro de otros dependiendo del orden
     div_img.appendChild(img)
     ul_li.appendChild(li)
@@ -115,6 +129,10 @@ fetch("http://"+host()+"/api/products/list")
     content.appendChild(contentproceso)
     contentproceso.appendChild(inputproceso)
     contentproceso.appendChild(buttonproceso)
+    content.appendChild(contentS)
+    contentS.appendChild(inputS)
+    contentS.appendChild(buttonS)
+    
 
     //la base que aparece en html contiene todo para que aparesca en el html
     div_base.appendChild(content)

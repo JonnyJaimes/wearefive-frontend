@@ -1,4 +1,5 @@
 
+
 const token = window.sessionStorage.getItem('access_token')
 const url = new URL(window.location.href);
 const id = url.searchParams.get("idModelo");
