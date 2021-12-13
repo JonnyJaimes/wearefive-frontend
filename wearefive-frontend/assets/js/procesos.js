@@ -15,7 +15,7 @@ fetch("http://"+host()+"/api/products/model/"+id+"/costs", {
 .then(response => response.ok ? Promise.resolve(response) : Promise.reject(response))
 .then(response => response.json())
 .then(data => {
-    
+    console.log(data)
 
     for(const product of data.procesos){
 
@@ -117,3 +117,5 @@ body.appendChild(tdButton)
 
 }
     })
+
+
