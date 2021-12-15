@@ -23,6 +23,7 @@ fetch("http://" + host() + "/api/products/model/" + id + "/stock", {
    .then(data => {
       console.log(data)
       let varia = "";
+      let vari = 0;
 
 
 
@@ -36,23 +37,61 @@ fetch("http://" + host() + "/api/products/model/" + id + "/stock", {
       const lista = [data.ejemplares];
       console.log(lista)
       console.log(varia)
+      let bod = "";
+
+      for (const list of data.ejemplares) {
+         const table = document.getElementById('bodyjs')
+         const body = document.createElement('tbody')
+         body.className = "post";
+
+         const tdNombre = document.createElement('td')
+         tdNombre.className = "a"
+         const Nombre = document.createElement('h2')
+         Nombre.innerHTML = list.talla
+         tdNombre.appendChild(Nombre)
+         body.appendChild(tdNombre)
 
 
+         const tdProcesos = document.createElement('td')
+         const proceso = document.createElement('li')
+         proceso.innerHTML = list.cantidad
+         tdProcesos.appendChild(proceso)
+         body.appendChild(tdProcesos)
+         table.appendChild(body)
+
+
+
+      }
+   })
+      
 
       var foo = data.ejemplares.map(function (bar) {
 
-         return '<li> cantidad  ' + bar.cantidad + '  talla  ' + bar.talla + ' </li> '
+         return `<tr><td> cantidad  ${bar.cantidad}  </td><td>  talla+${bar.talla} </td></tr> `
       })
       document.getElementById("foo").innerHTML = foo;
 
       for (let value of data.ejemplares) {
          console.log(value);
-         value.innerHTML;
+         body.innerHTML += `
+         <td>
+            <th scope="row">${vari + 1}</th>
+            <td>${value.talla}</td>
+            <td>${value.cantidad}</td>
+
+
+            </th>
+
+
+         </td>
+         `
       }
+      document.getElementById("data").innerHTML = body;
 
 
       console.log(cantidad)
-   })
+      
+  
 
 
 
